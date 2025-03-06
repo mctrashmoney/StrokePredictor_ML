@@ -18,11 +18,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    app.logger.info("Home route accessed")  # Logs when this route is hit
     return render_template("index.html")
 
 # Define the route for prediction
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
+    app.logger.info("Predict route accessed")  # <-- Add this here
     if request.method == "POST":
         try:
             # Collect user input from the form (assuming input names match)
