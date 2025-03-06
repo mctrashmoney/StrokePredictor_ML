@@ -39,7 +39,7 @@ python app.py
 
 The app will be available at http://127.0.0.1:5000/.
 
-### API Endpoints
+### 4. API Endpoints
 
 1. Home Page
 
@@ -69,7 +69,7 @@ The app will be available at http://127.0.0.1:5000/.
   "prediction": "The person is at risk of stroke."
 }
 
-### Deploying to Render
+### 5. Deploying to Render
 
 1. Push the Code to GitHub
 
