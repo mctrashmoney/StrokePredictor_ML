@@ -8,7 +8,8 @@ import joblib  # To load the model
 current_dir = Path(__file__).parent
 
 # Construct the relative path to the model file
-model_path = current_dir / "model" / "model_rf_new.pkl"
+# model_path = current_dir / "model" / "model_rf_new.pkl"
+model_path = current_dir / "model" / "VotingClassifier_LR_RF_SVM_model.pkl"
 
 # Load the model
 model = joblib.load(model_path)
