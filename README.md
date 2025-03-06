@@ -73,29 +73,29 @@ The app will be available at http://127.0.0.1:5000/.
 
 1. Push the Code to GitHub
 
-git add .
+    git add .
 
-git commit -m "Initial commit"
+    git commit -m "Initial commit"
 
-git push origin main
+    git push origin main
 
 2. Deploy on Render
 
-1.	Go to Render.
+    1.	Go to Render.
 
-2.	Click New + → Web Service.
+    2.	Click New + → Web Service.
 
-3.	Connect your GitHub repository.
+    3.	Connect your GitHub repository.
 
-4.	Set Build Command:
+    4.	Set Build Command:
 
-pip install -r requirements.txt
+        pip install -r requirements.txt
 
-5.	Set Start Command:
+    5.	Set Start Command:
 
-gunicorn app:app
+        gunicorn app:app
 
-6.	Click "Deploy" and wait for deployment to complete.
+    6.	Click "Deploy" and wait for deployment to complete.
 
 ### Troubleshooting
 
