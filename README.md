@@ -8,26 +8,23 @@ Project4_MachineLearning/
 
 ├── healthcare-dataset-stroke-data  # Your dataset   
 
-│   
-
 ├── Stroke_Risk_Prediction.ipynb  # Jupyter notebook for exploring the model              
 
 ├── model/                  
-│   ├── model_rf_new.pkl    # Saved Random Forest model
+      ├── model_rf_new.pkl    # Saved Random Forest model
 
-│   └── model_SVM.pkl      # Saved SVM model
+      └── model_SVM.pkl      # Saved SVM model
 
-│   └── stroke_logistic_reg_model.pkl 
-│
+      └── stroke_logistic_reg_model.pkl 
 
 ├── static/    
 
-│   └── style.css           # CSS file for styling your web app
-│
+       └── style.css           # CSS file for styling your web app
 
-├──├ templates/      
 
-│   └── index.html          # HTML template for your web app's homepage          
+├── templates/      
+
+        └── index.html          # HTML template for your web app's homepage          
 
 
 ├── app.py                  # Main file to run your Flask/Django web app
