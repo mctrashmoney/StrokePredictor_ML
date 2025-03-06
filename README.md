@@ -6,34 +6,35 @@ This project is a Flask-based web API for predicting stroke risk using machine l
 
 Project4_MachineLearning/
 
-├── healthcare-dataset-stroke-data  # Your dataset   
+└── healthcare-dataset-stroke-data  # Your dataset   
 
-├── Stroke_Risk_Prediction.ipynb  # Jupyter notebook for exploring the model              
+└── Stroke_Risk_Prediction.ipynb  # Jupyter notebook for exploring the model              
 
-├── model/                  
-      ├── model_rf_new.pkl    # Saved Random Forest model
+└── model/                  
+
+      └── model_rf_new.pkl    # Saved Random Forest model
 
       └── model_SVM.pkl      # Saved SVM model
 
       └── stroke_logistic_reg_model.pkl 
 
-├── static/    
+└── static/    
 
        └── style.css           # CSS file for styling your web app
 
 
-├── templates/      
+└── templates/      
 
         └── index.html          # HTML template for your web app's homepage          
 
 
-├── app.py                  # Main file to run your Flask/Django web app
+└── app.py                  # Main file to run your Flask/Django web app
 
-├── Procfile                # For deployment (e.g., on Render)
+└── Procfile                # For deployment (e.g., on Render)
 
-├── requirements.txt        # Python dependencies
+└── requirements.txt        # Python dependencies
 
-├── README.md               # Project documentation  
+└── README.md               # Project documentation  
 
 ## Features
 
