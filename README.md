@@ -28,7 +28,7 @@ git clone https://github.com/your-username/Stroke-Risk-Prediction.git
 
 cd Stroke-Risk-Prediction
 
-### 2. Install Dependencies
+**### 2. Install Dependencies**
 
 pip install -r requirements.txt
 
