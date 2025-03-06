@@ -16,6 +16,10 @@ model = joblib.load(model_path)
 # Initialize Flask app
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 # Define the route for prediction
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
