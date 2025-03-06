@@ -28,7 +28,8 @@ git clone https://github.com/your-username/Stroke-Risk-Prediction.git
 
 cd Stroke-Risk-Prediction
 
-**### 2. Install Dependencies**
+```
+### 2. Install Dependencies
 
 pip install -r requirements.txt
 
@@ -113,9 +114,13 @@ Try triggering a redeploy:
 git commit --allow-empty -m "Trigger redeploy"
 
 git push origin main
-Contributing
+
+### Contributing
+
 Contributions are welcome! If you would like to contribute, feel free to submit a pull request.
-License
+
+### License
+
 This project is open-source under the MIT License.
 
 
