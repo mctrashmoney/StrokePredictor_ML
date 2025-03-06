@@ -97,7 +97,7 @@ The app will be available at http://127.0.0.1:5000/.
 
     6.	Click "Deploy" and wait for deployment to complete.
 
-### Troubleshooting
+## Troubleshooting
 
 Getting a 404 Error?
 
@@ -115,11 +115,11 @@ git commit --allow-empty -m "Trigger redeploy"
 
 git push origin main
 
-### Contributing
+## Contributing
 
 Contributions are welcome! If you would like to contribute, feel free to submit a pull request.
 
-### License
+## License
 
 This project is open-source under the MIT License.
 
