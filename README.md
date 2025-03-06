@@ -43,13 +43,13 @@ The app will be available at http://127.0.0.1:5000/.
 
 1. Home Page
 
-•	GET / → Loads the web UI (index.html)
+    •	GET / → Loads the web UI (index.html)
 
 2. Stroke Risk Prediction
 
-•	POST /predict → Accepts user data and returns stroke risk prediction.
+    •	POST /predict → Accepts user data and returns stroke risk prediction.
 
-•	Input Format (JSON or Form Data):
+    •	Input Format (JSON or Form Data):
 {
   "age": 50,
   "gender": "Male",
@@ -63,7 +63,7 @@ The app will be available at http://127.0.0.1:5000/.
   "smoking_status": "never smoked"
 }
 
-•	Example Response:
+    •	Example Response:
 
 {
   "prediction": "The person is at risk of stroke."
