@@ -22,8 +22,9 @@ def create_and_save_scaler():
 
         # Create a sample dataset (this should ideally be your training dataset)
         # For demonstration, we'll assume the dataset is a CSV with the same columns
-        data = pd.read_csv('C:/Gayatri/UnivOfTexas_Bootcamp/classes/Assignment/project4/stroke_risk/dataset1/6march_4_57PM/df_cleaned_export.csv')
-
+        #data = pd.read_csv('C:/Gayatri/UnivOfTexas_Bootcamp/classes/Assignment/project4/stroke_risk/dataset1/6march_4_57PM/df_cleaned_export.csv')
+        dataset_path = current_dir / "df_cleaned_export.csv"
+        data = pd.read_csv(dataset_path)
         # List of columns that need to be scaled
         columns_to_scale = [
             'age', 'hypertension', 'heart_disease', 'avg_glucose_level', 'bmi',
