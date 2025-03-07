@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
 }
 
@@ -38,4 +38,112 @@ h3 {
     font-size: 1.5em;
     color: #333;
     margin-top: 20px;
+} */
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Styling form elements */
+form {
+    max-width: 100%;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    transition: border 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #4CAF50;
+}
+
+button {
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #388e3c;
+}
+
+/* Styling for prediction text */
+h3 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-top: 30px;
+}
+
+/* Spacing and shadow for form */
+form {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Enhancing the container */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* For smaller screens (Responsiveness) */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .form-select, .form-control {
+        padding: 8px;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 10px;
+    }
 }

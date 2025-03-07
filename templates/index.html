@@ -3,17 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stroke Prediction</title>
+    <title>Stroke Risk Prediction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="favicon.ico"> <!-- Optional favicon -->
+    <style>
+        /* Custom Styles */
+        .prediction-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .prediction-container .prediction-text {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .prediction-container .form-container {
+            flex: 1;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input[type="range"] {
+            width: 100%;
+        }
+        .form-container .form-label {
+            font-weight: bold;
+        }
+        .prediction-container .form-select, .form-container input[type="number"] {
+            border-radius: 5px;
+        }
+        .progress {
+            height: 20px;
+        }
+        .prediction-text {
+            margin-top: 20px;
+        }
+        .form-select, .form-range, .btn {
+            margin-bottom: 15px;
+        }
+
+        /* Custom styles for recommendation list */
+        #recommendations ul {
+            text-align: left; /* Align the list to the left */
+            padding-left: 20px; /* Add padding for a proper indentation */
+        }
+        #recommendations li {
+            padding-left: 10px; /* Additional left padding for each list item */
+        }
+    </style>
 </head>
-<body class="bg-light text-center">
+<body class="bg-light">
+
     <div class="container mt-5">
-        <h1 class="mb-4">Stroke Prediction Model</h1>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form action="/predict" method="POST" class="p-4 bg-white rounded shadow">
-                    
+        <div class="text-center">
+            <h1 class="display-4 mb-4">Stroke Risk Prediction 💖</h1>
+            <p class="lead mb-4 text-muted">Simplified and Personalized Stroke Risk Assessment</p>
+        </div>
+
+        <div class="prediction-container">
+            <!-- Left Side: User Input Form -->
+            <div class="form-container">
+                <form action="/predict" method="POST">
+                    <!-- Gender input -->
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender:</label>
                         <select class="form-select" name="gender" id="gender" required>
@@ -22,38 +79,46 @@
                         </select>
                     </div>
 
+                    <!-- Age input with range slider -->
                     <div class="mb-3">
                         <label for="age" class="form-label">Age:</label>
-                        <input type="number" class="form-control" name="age" id="age" required>
+                        <input type="range" class="form-range" name="age" id="age" min="0" max="100" step="1" value="25" required>
+                        <div class="d-flex justify-content-between">
+                            <span id="age_value">25</span>
+                        </div>
                     </div>
 
+                    <!-- Hypertension input -->
                     <div class="mb-3">
                         <label for="hypertension" class="form-label">Hypertension:</label>
-                        <select class="form-select" name="hypertension" id="hypertension">
+                        <select class="form-select" name="hypertension" id="hypertension" required>
                             <option value="0">No</option>
                             <option value="1">Yes</option>
                         </select>
                     </div>
 
+                    <!-- Heart Disease input -->
                     <div class="mb-3">
                         <label for="heart_disease" class="form-label">Heart Disease:</label>
-                        <select class="form-select" name="heart_disease" id="heart_disease">
+                        <select class="form-select" name="heart_disease" id="heart_disease" required>
                             <option value="0">No</option>
                             <option value="1">Yes</option>
                         </select>
                     </div>
 
+                    <!-- Ever Married input -->
                     <div class="mb-3">
                         <label for="ever_married" class="form-label">Ever Married:</label>
-                        <select class="form-select" name="ever_married" id="ever_married">
+                        <select class="form-select" name="ever_married" id="ever_married" required>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
 
+                    <!-- Work Type input -->
                     <div class="mb-3">
                         <label for="work_type" class="form-label">Work Type:</label>
-                        <select class="form-select" name="work_type" id="work_type">
+                        <select class="form-select" name="work_type" id="work_type" required>
                             <option value="Private">Private</option>
                             <option value="Self-employed">Self-employed</option>
                             <option value="Govt_job">Government Job</option>
@@ -62,27 +127,37 @@
                         </select>
                     </div>
 
+                    <!-- Residence Type input -->
                     <div class="mb-3">
                         <label for="residence_type" class="form-label">Residence Type:</label>
-                        <select class="form-select" name="residence_type" id="residence_type">
+                        <select class="form-select" name="residence_type" id="residence_type" required>
                             <option value="Urban">Urban</option>
                             <option value="Rural">Rural</option>
                         </select>
                     </div>
 
+                    <!-- Average Glucose Level input with range slider -->
                     <div class="mb-3">
                         <label for="avg_glucose_level" class="form-label">Average Glucose Level:</label>
-                        <input type="number" class="form-control" name="avg_glucose_level" id="avg_glucose_level" required step="any">
+                        <input type="range" class="form-range" name="avg_glucose_level" id="avg_glucose_level" min="0" max="300" step="1" value="100" required>
+                        <div class="d-flex justify-content-between">
+                            <span id="glucose_value">100</span>
+                        </div>
                     </div>
 
+                    <!-- BMI input with range slider -->
                     <div class="mb-3">
                         <label for="bmi" class="form-label">BMI:</label>
-                        <input type="number" class="form-control" name="bmi" id="bmi" required step="any">
+                        <input type="range" class="form-range" name="bmi" id="bmi" min="0" max="60" step="0.1" value="25" required>
+                        <div class="d-flex justify-content-between">
+                            <span id="bmi_value">25</span>
+                        </div>
                     </div>
 
+                    <!-- Smoking Status input -->
                     <div class="mb-3">
                         <label for="smoking_status" class="form-label">Smoking Status:</label>
-                        <select class="form-select" name="smoking_status" id="smoking_status">
+                        <select class="form-select" name="smoking_status" id="smoking_status" required>
                             <option value="never smoked">Never smoked</option>
                             <option value="formerly smoked">Formerly smoked</option>
                             <option value="smokes">Smokes</option>
@@ -90,12 +165,81 @@
                         </select>
                     </div>
 
+                    <!-- Submit Button -->
                     <button type="submit" class="btn btn-success w-100">Predict</button>
                 </form>
+            </div>
 
-                <h3 class="mt-4">{{ prediction_text }}</h3>
+            <!-- Right Side: Prediction Result -->
+            <div class="prediction-text">
+                <h3 id="risk_score_display" class="mt-4"></h3>
+                <div id="progress_bar"></div>
+                <div id="risk_category"></div>
+                <div id="recommendations"></div>
             </div>
         </div>
     </div>
+
+    <script>
+        // JavaScript to update slider values dynamically
+        document.getElementById('age').oninput = function() {
+            document.getElementById('age_value').textContent = this.value;
+        };
+        document.getElementById('avg_glucose_level').oninput = function() {
+            document.getElementById('glucose_value').textContent = this.value;
+        };
+        document.getElementById('bmi').oninput = function() {
+            document.getElementById('bmi_value').textContent = this.value;
+        };
+
+        // JavaScript for displaying prediction result
+        function displayPrediction(risk_score) {
+            let risk_percentage = risk_score * 100;
+            document.getElementById('risk_score_display').innerHTML = "🩺 Your Risk Score: " + risk_percentage.toFixed(2) + "%";
+
+            let progress_bar = "<div class='progress'><div class='progress-bar' style='width: " + risk_percentage + "%;' role='progressbar'></div></div>";
+            document.getElementById('progress_bar').innerHTML = progress_bar;
+
+            let risk_category = "";
+            let recommendations = "";
+
+            if (risk_score < 0.3) {
+                risk_category = "<div class='alert alert-success'>You are at **Low Risk** for stroke. Keep up the healthy habits!</div>";
+                recommendations = ` 
+                    <ul>
+                        <li>Maintain regular physical activity (150 mins/week).</li>
+                        <li>Follow a balanced diet (low sodium, rich in fruits and vegetables).</li>
+                        <li>Keep regular health checkups for blood pressure and cholesterol.</li>
+                    </ul>
+                `;
+            } else if (risk_score < 0.6) {
+                risk_category = "<div class='alert alert-warning'>You are at **Medium Risk** for stroke. Consider making lifestyle improvements.</div>";
+                recommendations = `
+                    <ul>
+                        <li>Increase physical activity: Aim for 30 minutes of exercise, 5 days a week.</li>
+                        <li>Quit smoking: Seek support or resources.</li>
+                        <li>Monitor cholesterol and blood pressure regularly.</li>
+                    </ul>
+                `;
+            } else {
+                risk_category = "<div class='alert alert-danger'>You are at **High Risk** for stroke. Take immediate action.</div>";
+                recommendations = `
+                    <ul>
+                        <li>Consult a healthcare provider immediately.</li>
+                        <li>Implement lifestyle changes: Quit smoking, reduce salt intake.</li>
+                        <li>Increase physical activity to manage weight and cardiovascular health.</li>
+                        <li>Consider medication for blood pressure and cholesterol if advised.</li>
+                    </ul>
+                `;
+            }
+
+            document.getElementById('risk_category').innerHTML = risk_category;
+            document.getElementById('recommendations').innerHTML = recommendations;
+        }
+
+        // Simulate a backend response with a random risk score
+        displayPrediction(Math.random());
+    </script>
+
 </body>
 </html>
