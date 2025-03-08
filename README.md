@@ -1,6 +1,6 @@
 # Stroke Risk Prediction API
 
-This project is a Flask-based web API for predicting stroke risk using machine learning. The backend is powered by a trained Random Forest model and is deployed on Render.
+This project is a Flask-based web API for predicting stroke risk using machine learning. The backend is powered by an ensemble model trained using a Voting Classifier and is deployed on Render.
 
 ## Project Structure
 
@@ -12,11 +12,13 @@ Project4_MachineLearning/
 
 └── model/                  
 
-      └── model_rf_new.pkl    # Saved Random Forest model
+      └── model_rf_new.pkl                          # Saved Random Forest model
 
-      └── model_SVM.pkl      # Saved SVM model
+      └── model_SVM.pkl                             # Saved SVM model
 
-      └── stroke_logistic_reg_model.pkl 
+      └── stroke_logistic_reg_model.pkl             # Saved Logistic Regression model
+
+      └── VotingClassifier_LR_RF_SVM_model.pkl      # Saved Voting Classifier (Logistic Regression + Random Forest + SVM)
 
 └── static/    
 
@@ -28,11 +30,13 @@ Project4_MachineLearning/
         └── index.html          # HTML template for your web app's homepage          
 
 
-└── app.py                  # Main file to run your Flask/Django web app
+└── app.py                  # Main file to run your Flask web app
 
 └── Procfile                # For deployment (e.g., on Render)
 
 └── requirements.txt        # Python dependencies
+
+└── df_cleaned_export       # Input to app.py   
 
 └── README.md               # Project documentation  
 
@@ -40,7 +44,7 @@ Project4_MachineLearning/
 
 - Accepts user health data such as age, gender, glucose level, BMI, and other relevant parameters.
   
-- Uses a pre-trained Random Forest model for prediction.
+- Uses a Voting Classifier as an ensemble model for stroke risk prediction.
   
 - Returns whether a person is at risk of stroke or not.
   
@@ -149,8 +153,13 @@ git push origin main
 
 Contributions are welcome! If you would like to contribute, feel free to submit a pull request.
 
-## License
+## License  
 
-This project is open-source under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) – you are free to use, modify, and distribute it 
+
+with proper attribution.  
+
+### Data License  
+The dataset used in this project is © Original Authors and is subject to its original licensing terms. Please refer to the [data source](<link_to_dataset>) for more details.
 
 
