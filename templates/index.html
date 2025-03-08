@@ -171,12 +171,38 @@
             </div>
 
             <!-- Right Side: Prediction Result -->
-            <div class="prediction-text">
+            <!-- <div class="prediction-text">
                 <h3 id="risk_score_display" class="mt-4"></h3>
                 <div id="progress_bar"></div>
                 <div id="risk_category"></div>
                 <div id="recommendations"></div>
+            </div> -->
+
+            <div class="prediction-result">
+                <h3 class="mt-4">{{ prediction_text }}</h3>
+                <!-- Conditional rendering based on prediction_text -->
+                {% if prediction_text == "The person is at risk of stroke." %}
+                    <div id="recommendations">
+                        <h4>Recommendations:</h4>
+                        <ul>
+                            <li>Consult a healthcare provider immediately.</li>
+                            <li>Implement lifestyle changes: Quit smoking, reduce salt intake.</li>
+                            <li>Increase physical activity to manage weight and cardiovascular health.</li>
+                            <li>Consider medication for blood pressure and cholesterol if advised.</li>
+                        </ul>
+                    </div>
+                {% elif prediction_text == "The person is not at risk of stroke." %}
+                    <div id="recommendations">
+                        <h4>Recommendations:</h4>
+                        <ul>
+                            <li>Maintain regular physical activity (150 mins/week).</li>
+                            <li>Follow a balanced diet (low sodium, rich in fruits and vegetables).</li>
+                            <li>Keep regular health checkups for blood pressure and cholesterol.</li>
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
+
         </div>
     </div>
 
@@ -192,53 +218,60 @@
             document.getElementById('bmi_value').textContent = this.value;
         };
 
+        
+
+
+
         // JavaScript for displaying prediction result
-        function displayPrediction(risk_score) {
-            let risk_percentage = risk_score * 100;
-            document.getElementById('risk_score_display').innerHTML = "🩺 Your Risk Score: " + risk_percentage.toFixed(2) + "%";
+        // function displayPrediction(risk_score) {
+        //     let risk_percentage = risk_score * 100;
+        //     document.getElementById('risk_score_display').innerHTML = "🩺 Your Risk Score: " + risk_percentage.toFixed(2) + "%";
 
-            let progress_bar = "<div class='progress'><div class='progress-bar' style='width: " + risk_percentage + "%;' role='progressbar'></div></div>";
-            document.getElementById('progress_bar').innerHTML = progress_bar;
+        //     let progress_bar = "<div class='progress'><div class='progress-bar' style='width: " + risk_percentage + "%;' role='progressbar'></div></div>";
+        //     document.getElementById('progress_bar').innerHTML = progress_bar;
 
-            let risk_category = "";
-            let recommendations = "";
+        //     let risk_category = "";
+        //     let recommendations = "";
 
-            if (risk_score < 0.3) {
-                risk_category = "<div class='alert alert-success'>You are at **Low Risk** for stroke. Keep up the healthy habits!</div>";
-                recommendations = ` 
-                    <ul>
-                        <li>Maintain regular physical activity (150 mins/week).</li>
-                        <li>Follow a balanced diet (low sodium, rich in fruits and vegetables).</li>
-                        <li>Keep regular health checkups for blood pressure and cholesterol.</li>
-                    </ul>
-                `;
-            } else if (risk_score < 0.6) {
-                risk_category = "<div class='alert alert-warning'>You are at **Medium Risk** for stroke. Consider making lifestyle improvements.</div>";
-                recommendations = `
-                    <ul>
-                        <li>Increase physical activity: Aim for 30 minutes of exercise, 5 days a week.</li>
-                        <li>Quit smoking: Seek support or resources.</li>
-                        <li>Monitor cholesterol and blood pressure regularly.</li>
-                    </ul>
-                `;
-            } else {
-                risk_category = "<div class='alert alert-danger'>You are at **High Risk** for stroke. Take immediate action.</div>";
-                recommendations = `
-                    <ul>
-                        <li>Consult a healthcare provider immediately.</li>
-                        <li>Implement lifestyle changes: Quit smoking, reduce salt intake.</li>
-                        <li>Increase physical activity to manage weight and cardiovascular health.</li>
-                        <li>Consider medication for blood pressure and cholesterol if advised.</li>
-                    </ul>
-                `;
-            }
+        //     if (risk_score < 0.3) {
+        //         risk_category = "<div class='alert alert-success'>You are at **Low Risk** for stroke. Keep up the healthy habits!</div>";
+        //         recommendations = ` 
+        //             <ul>
+        //                 <li>Maintain regular physical activity (150 mins/week).</li>
+        //                 <li>Follow a balanced diet (low sodium, rich in fruits and vegetables).</li>
+        //                 <li>Keep regular health checkups for blood pressure and cholesterol.</li>
+        //             </ul>
+        //         `;
+        //     } else if (risk_score < 0.6) {
+        //         risk_category = "<div class='alert alert-warning'>You are at **Medium Risk** for stroke. Consider making lifestyle improvements.</div>";
+        //         recommendations = `
+        //             <ul>
+        //                 <li>Increase physical activity: Aim for 30 minutes of exercise, 5 days a week.</li>
+        //                 <li>Quit smoking: Seek support or resources.</li>
+        //                 <li>Monitor cholesterol and blood pressure regularly.</li>
+        //             </ul>
+        //         `;
+        //     } else {
+        //         risk_category = "<div class='alert alert-danger'>You are at **High Risk** for stroke. Take immediate action.</div>";
+        //         recommendations = `
+        //             <ul>
+        //                 <li>Consult a healthcare provider immediately.</li>
+        //                 <li>Implement lifestyle changes: Quit smoking, reduce salt intake.</li>
+        //                 <li>Increase physical activity to manage weight and cardiovascular health.</li>
+        //                 <li>Consider medication for blood pressure and cholesterol if advised.</li>
+        //             </ul>
+        //         `;
+        //     }
 
-            document.getElementById('risk_category').innerHTML = risk_category;
-            document.getElementById('recommendations').innerHTML = recommendations;
-        }
+        //     document.getElementById('risk_category').innerHTML = risk_category;
+        //     document.getElementById('recommendations').innerHTML = recommendations;
+        // }
 
         // Simulate a backend response with a random risk score
-        displayPrediction(Math.random());
+        //displayPrediction(Math.random());
+        // Fetch the prediction text passed from Flask via Jinja2
+        
+        
     </script>
 
 </body>

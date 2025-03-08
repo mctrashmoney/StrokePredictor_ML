@@ -13,6 +13,8 @@ current_dir = Path(__file__).parent
 
 # Path to the model and scaler files
 model_path = current_dir / "model" / "VotingClassifier_LR_RF_SVM_model.pkl"
+# model_path = current_dir / "model" / "xgboost_model.pkl"
+# model_path = current_dir / "model" / "model_rf_new.pkl"
 scaler_path = current_dir / "model" / "scaler.pkl"
 
 # Step to create the scaler.pkl if it doesn't exist
