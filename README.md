@@ -1,6 +1,6 @@
 # Stroke Risk Prediction API
 
-This project is a Flask-based web API for predicting stroke risk using machine learning. The backend is powered by an ensemble model trained using a Voting Classifier and is deployed on Render.
+This project is a Flask-based web API for predicting stroke risk using machine learning. The backend is powered by XGBoost and is deployed on Render.
 
 ## Project Structure
 
@@ -19,6 +19,8 @@ Project4_MachineLearning/
       └── stroke_logistic_reg_model.pkl             # Saved Logistic Regression model
 
       └── VotingClassifier_LR_RF_SVM_model.pkl      # Saved Voting Classifier (Logistic Regression + Random Forest + SVM)
+
+      └── xgboost_model.pkl                          # Saved XGBoost model
 
 └── static/    
 
@@ -44,7 +46,7 @@ Project4_MachineLearning/
 
 - Accepts user health data such as age, gender, glucose level, BMI, and other relevant parameters.
   
-- Uses a Voting Classifier as an ensemble model for stroke risk prediction.
+- Uses XGBoost model for stroke risk prediction.
   
 - Returns whether a person is at risk of stroke or not.
   
