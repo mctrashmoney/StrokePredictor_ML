@@ -1,12 +1,23 @@
+/* Default Light Mode Variables */
+:root {
+    --bs-light-rgb: 153, 221, 255; /* Light mode default */
+    --bs-dark-rgb: 18, 18, 18; /* Dark mode default */
+    --bs-bg-opacity: 1;
+}
 
-/* General Body Styling */
+/* Apply Background Colors */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #eef2f3;
-    color: #333;
+    background-color: rgb(var(--bs-light-rgb)) !important;
+    color: #222 !important; /* Darker text for readability */
     margin: 0;
     padding: 0;
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Dark Mode Styles (Applied Dynamically) */
+body.dark-mode {
+    background-color: var(#121212) !important;
+    color: #ffffff !important;
 }
 
 /* Container Styling */
@@ -14,155 +25,99 @@ body {
     max-width: 800px;
     margin: auto;
     padding: 40px;
-    background: #ffffff;
+    background: #ffffff !important; /* White background for high contrast */
     border-radius: 12px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease-in-out;
 }
 
+/* Dark Mode for Container */
+body.dark-mode .container {
+    background: #1e1e1e !important; /* Dark gray */
+    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.05) !important;
+}
+
 /* Heading Styling */
-h1 {
-    font-size: 2.5em;
+h1, h3 {
     color: #2c3e50;
-    font-weight: bold;
     text-align: center;
     transition: color 0.4s ease-in-out;
 }
 
-h3 {
-    font-size: 1.8em;
-    color: #2c3e50;
-    margin-top: 20px;
-    text-align: center;
+/* Dark Mode for Headings */
+body.dark-mode h1, body.dark-mode h3 {
+    color: #ffffff;
 }
 
 /* Form Styling */
 .form-container {
     padding: 30px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #e0f7fa 30%, #ffffff 100%);
+    background: linear-gradient(135deg, #d8eefe 10%, #ffffff 90%) !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
 .form-container:hover {
     transform: scale(1.02);
+    background-color: rgb(var(--bs-light-rgb)) !important;
 }
 
-.form-label {
-    font-weight: 600;
-    color: #333;
+/* Dark Mode for Form */
+body.dark-mode .form-container {
+    background: linear-gradient(135deg, #1a1a1a 10%, #292929 90%) !important;
 }
 
-.form-control, .form-select {
-    border-radius: 8px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* Dark Mode Hover Effect */
+body.dark-mode .form-container:hover {
+    background-color: #121212 !important;
 }
 
-.form-control:focus, .form-select:focus {
-    border-color: #1abc9c;
-    box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.5);
-}
-
-/* Range Inputs */
-.form-range {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-/* Buttons */
-.btn {
-    font-size: 1.2em;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border: none;
-}
-
+/* Button Styling */
 .btn-success {
-    background-color: #1abc9c;
+    background-color: #16a085;
     color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .btn-success:hover {
-    background-color: #16a085;
+    background-color: #149174;
     transform: scale(1.05);
 }
 
-.btn-success:active {
-    background-color: #149174;
+/* Dark Mode for Buttons */
+body.dark-mode .btn-success {
+    background-color: #1abc9c;
 }
 
-/* Prediction Result Styling */
-.prediction-result {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    background: #fff;
-}
-
-/* Risk Display Styling */
-.prediction-result .alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.prediction-result .alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* Recommendations List */
-#recommendations ul {
-    text-align: left;
-    padding-left: 20px;
-}
-
-#recommendations li {
-    padding-left: 10px;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-}
-
-.dark-mode .container {
-    background: #34495e;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode h1, .dark-mode h3 {
-    color: #ecf0f1;
-}
-
-.dark-mode .form-container {
-    background: linear-gradient(135deg, #2c3e50 30%, #34495e 100%);
-}
-
-.dark-mode .form-control, .dark-mode .form-select {
-    background-color: #576574;
-    color: #ecf0f1;
-    border-color: #95a5a6;
-}
-
-.dark-mode .btn-success {
+body.dark-mode .btn-success:hover {
     background-color: #16a085;
 }
 
-/* Dark Mode Toggle */
+/* Alerts */
+.alert-danger {
+    background-color: #e57373;
+    color: #fff;
+}
+
+.alert-success {
+    background-color: #81c784;
+    color: #fff;
+}
+
+/* Dark Mode for Alerts */
+body.dark-mode .alert-danger {
+    background-color: #ff6b6b;
+}
+
+body.dark-mode .alert-success {
+    background-color: #66bb6a;
+}
+
+/* Dark Mode Toggle Button */
 #dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -172,34 +127,43 @@ h3 {
     border: none;
     padding: 10px 15px;
     border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+#dark-mode-toggle:hover {
+    background: #16a085;
+    transform: scale(1.05);
+}
+
+/* Smaller Button on Mobile */
+@media (max-width: 768px) {
+    #dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #dark-mode-toggle:hover {
     background: #16a085;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .form-container {
-        padding: 20px;
-    }
-
-    .form-select, .form-control {
-        padding: 8px;
-    }
-
-    button {
-        font-size: 1em;
-        padding: 10px;
-    }
+    transform: scale(1.05);
 }

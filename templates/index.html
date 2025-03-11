@@ -59,6 +59,7 @@
     </style>
 </head>
 <body class="bg-light">
+    <button id="dark-mode-toggle">🌙 Toggle Dark Mode</button>
 
     <div class="container mt-5">
         <div class="text-center">
@@ -208,7 +209,7 @@
 
     <script>
         // JavaScript to update slider values dynamically
-        document.getElementById('age').oninput = function() {
+            document.getElementById('age').oninput = function() {
             document.getElementById('age_value').textContent = this.value;
         };
         document.getElementById('avg_glucose_level').oninput = function() {
@@ -217,8 +218,40 @@
         document.getElementById('bmi').oninput = function() {
             document.getElementById('bmi_value').textContent = this.value;
         };
+        // JavaScript for Dark Mode toggle
+        function updateTheme() {
+        if (document.body.classList.contains("dark-mode")) {
+            document.documentElement.style.setProperty('--bs-light-rgb', '18, 18, 18');
+            document.body.style.backgroundColor = "#121212"; 
+            document.getElementById("dark-mode-toggle").innerHTML = "☀️ Light Mode";
+    } else {
+            document.documentElement.style.setProperty('--bs-light-rgb', '153, 221, 255'); 
+            document.body.style.backgroundColor = "rgb(var(--bs-light-rgb))"; 
+            document.getElementById("dark-mode-toggle").innerHTML = "🌙 Dark Mode";
+    }}
 
-        
+    // Check user preference on page load
+        document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+    updateTheme();
+    });
+
+    // Toggle Dark Mode when the button is clicked
+        document.getElementById("dark-mode-toggle").addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+    }
+
+    updateTheme();
+    });
 
 
 
@@ -272,6 +305,8 @@
         // Fetch the prediction text passed from Flask via Jinja2
         
         
+
+
     </script>
 
 </body>
