@@ -42,9 +42,6 @@ print(f"Scaler saved to {scaler_path}")
 # Initialize Flask app
 app = Flask(__name__)
 
-
-
-
 # Path to the model and scaler files
 model_path = current_dir / "model" / "xgboost_model.pkl"
 scaler_path = current_dir / "model" / "scaler.pkl"
