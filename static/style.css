@@ -1,11 +1,11 @@
-/* Default Light Mode Variables */
+/* === Global Variables === */
 :root {
     --bs-light-rgb: 153, 221, 255; /* Light mode default */
     --bs-dark-rgb: 18, 18, 18; /* Dark mode default */
     --bs-bg-opacity: 1;
 }
 
-/* Apply Background Colors */
+/* === Global Styling === */
 body {
     background-color: rgb(var(--bs-light-rgb)) !important;
     color: #222 !important; /* Darker text for readability */
@@ -14,18 +14,18 @@ body {
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-/* Dark Mode Styles (Applied Dynamically) */
+/* === Dark Mode === */
 body.dark-mode {
-    background-color: var(#121212) !important;
+    background-color: #121212 !important;
     color: #ffffff !important;
 }
 
-/* Container Styling */
+/* === Container Styling === */
 .container {
     max-width: 800px;
     margin: auto;
     padding: 40px;
-    background: #ffffff !important; /* White background for high contrast */
+    background: #ffffff !important;
     border-radius: 12px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease-in-out;
@@ -33,11 +33,11 @@ body.dark-mode {
 
 /* Dark Mode for Container */
 body.dark-mode .container {
-    background: #1e1e1e !important; /* Dark gray */
+    background: #1e1e1e !important;
     box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.05) !important;
 }
 
-/* Heading Styling */
+/* === Headings === */
 h1, h3 {
     color: #2c3e50;
     text-align: center;
@@ -49,7 +49,7 @@ body.dark-mode h1, body.dark-mode h3 {
     color: #ffffff;
 }
 
-/* Form Styling */
+/* === Form Styling === */
 .form-container {
     padding: 30px;
     border-radius: 12px;
@@ -73,7 +73,7 @@ body.dark-mode .form-container:hover {
     background-color: #121212 !important;
 }
 
-/* Button Styling */
+/* === Buttons === */
 .btn-success {
     background-color: #16a085;
     color: white;
@@ -97,7 +97,7 @@ body.dark-mode .btn-success:hover {
     background-color: #16a085;
 }
 
-/* Alerts */
+/* === Alerts === */
 .alert-danger {
     background-color: #e57373;
     color: #fff;
@@ -117,7 +117,7 @@ body.dark-mode .alert-success {
     background-color: #66bb6a;
 }
 
-/* Dark Mode Toggle Button */
+/* === Dark Mode Toggle Button === */
 #dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -138,38 +138,8 @@ body.dark-mode .alert-success {
     background: #16a085;
     transform: scale(1.05);
 }
-#dark-mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #1abc9c;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
 
-#dark-mode-toggle:hover {
-    background: #16a085;
-    transform: scale(1.05);
-}
-.visualization-button {
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
-}
-
-.visualization-button:hover {
-    transform: scale(1.02);
-    background-color: #149174 !important;
-}
+/* === Visualization Button === */
 .visualization-button {
     position: fixed;
     top: 20px;
