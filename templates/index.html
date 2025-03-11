@@ -184,8 +184,13 @@
             </div> -->
 
             <div class="prediction-result">
-                <h3 class="mt-4">{{ prediction_text }}</h3>
-                <!-- Conditional rendering based on prediction_text -->
+                {% if prediction_text %}
+                    <div class="alert {% if 'not at risk' in prediction_text %}alert-success{% else %}alert-danger{% endif %}">
+                        <h3>{{ prediction_text }}</h3>
+                    </div>
+                {% endif %}
+            
+                <!-- Recommendations based on the result -->
                 {% if prediction_text == "The person is at risk of stroke." %}
                     <div id="recommendations">
                         <h4>Recommendations:</h4>
@@ -207,6 +212,7 @@
                     </div>
                 {% endif %}
             </div>
+            
 
         </div>
     </div>
