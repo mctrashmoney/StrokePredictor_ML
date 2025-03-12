@@ -4,7 +4,7 @@
 ## **🔍 Overview**
 This project focuses on developing a **stroke risk prediction web application** utilizing **machine learning and Flask API**. The web interface is built with **Bootstrap and custom CSS**, ensuring a responsive and accessible user experience.
 
-### **Key Features**
+### **🔑 Key Features**
 - ✅ **XGBoost model** achieving **high accuracy** for stroke prediction.
 - ✅ **Flask API** for processing user input and returning risk assessments.
 - ✅ **Bootstrap & CSS refinements** for a **seamless UI experience**.
