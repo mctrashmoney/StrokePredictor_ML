@@ -69,6 +69,35 @@ The app will be available at **http://127.0.0.1:5000/**.
 3. Click **Predict** to receive a stroke risk assessment.
 4. Review the results and follow the recommended lifestyle adjustments.
 
+## API Endpoints
+Home Page
+
+    •	GET / → Loads the web UI (index.html)
+
+Stroke Risk Prediction
+
+    •	POST /predict → Accepts user data and returns stroke risk prediction.
+
+    •	Input Format (JSON or Form Data):
+{
+  "age": 50,
+  "gender": "Male",
+  "hypertension": 1,
+  "heart_disease": 0,
+  "avg_glucose_level": 85.6,
+  "bmi": 25.4,
+  "ever_married": "Yes",
+  "work_type": "Private",
+  "residence_type": "Urban",
+  "smoking_status": "never smoked"
+}
+
+    •	Example Response:
+
+{
+  "prediction": "The person is at risk of stroke."
+}
+
 ### **3️⃣ Deployment**
 - Host for free on a number of cloud hosting sites: **Render, Heroku**, etc.
   
