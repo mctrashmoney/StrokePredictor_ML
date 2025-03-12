@@ -69,7 +69,7 @@ The app will be available at **http://127.0.0.1:5000/**.
 3. Click **Predict** to receive a stroke risk assessment.
 4. Review the results and follow the recommended lifestyle adjustments.
 
-## API Endpoints
+### API Endpoints
 Home Page
 
     •	GET / → Loads the web UI (index.html)
