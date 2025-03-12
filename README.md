@@ -36,7 +36,7 @@ The app will be available at **http://127.0.0.1:5000/**.
 ## **📊 Dataset Overview**
 The dataset comprises **5,110 records** with **12 features**, covering **demographic, health, and lifestyle factors** influencing stroke risk. Key features include **age, hypertension, heart disease, smoking status, and body mass index (BMI)**, offering a comprehensive insight into stroke risk determinants.
 
-### **Challenges & Data Preprocessing Steps**
+### **🚩Challenges & Data Preprocessing Steps**
 - **Handling Missing Data:** Rows with missing BMI and smoking status values were **dropped** to maintain data integrity.
 - **Encoding Categorical Data:** Applied **one-hot encoding** for categorical variables such as **work type** and **smoking status**.
 - **Addressing Class Imbalance:** No explicit balancing technique (such as SMOTE) was applied.
@@ -62,7 +62,7 @@ The most significant stroke risk factors are **older age, high blood sugar, hear
 ## **📌 Summary of Findings & Real-World Impact**
 Stroke is a leading global health concern, and early detection is critical for prevention. This project utilizes **a Voting Classifier combining Random Forest and Logistic Regression** to develop a highly accurate stroke risk prediction model. The interactive web app enables users to assess their risk and receive **personalized health recommendations**.
 
-### **Key Insights:**
+### **🔑 Key Insights:**
 - **Primary Risk Factors:** Age, glucose levels, hypertension, and heart disease are the most influential predictors.
 - **Lifestyle Contributions:** Smoking status and work type also play notable roles.
 - **Model Performance:** XGBoost was chosen for its high accuracy and performance in stroke risk prediction.
@@ -86,3 +86,10 @@ By identifying individuals at high risk early and offering **customized recommen
 
 ## **📜 License**
 This project is licensed under the **MIT License**, allowing for modifications and improvements by the community.
+
+Collaborators: 
+- @GayatriRajagopalan
+- @janetrodtx
+- @mctrashmoney
+- @Isalklm
+- @baron14-coder
