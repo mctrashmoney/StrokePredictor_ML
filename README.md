@@ -2,7 +2,48 @@
 🚀 **Machine Learning | Tableau | Flask API | Frontend Optimization**
 
 ## **🔍 Overview**
-This project focuses on developing a **stroke risk prediction web application** utilizing **machine learning and Flask API**. The web interface is built with **Bootstrap and custom CSS**, ensuring a responsive and accessible user experience.
+This project focuses on developing a **stroke risk prediction web application** utilizing **machine learning and Flask API**. The web interface is built with **Bootstrap and custom CSS**, ensuring a responsive and accessible user experience. The backend is powered by XGBoost and is deployed on Render.
+
+## Project Structure
+
+Project4_MachineLearning/
+
+└── healthcare-dataset-stroke-data  # Your dataset   
+
+└── Stroke_Risk_Prediction.ipynb  # Jupyter notebook for exploring the model              
+
+└── model/                  
+
+      └── model_rf_new.pkl                          # Saved Random Forest model
+
+      └── model_SVM.pkl                             # Saved SVM model
+
+      └── stroke_logistic_reg_model.pkl             # Saved Logistic Regression model
+
+      └── VotingClassifier_LR_RF_SVM_model.pkl      # Saved Voting Classifier (Logistic Regression + Random Forest + SVM)
+
+      └── xgboost_model.pkl                          # Saved XGBoost model
+
+└── static/    
+
+       └── style.css           # CSS file for styling your web app
+
+
+└── templates/      
+
+        └── index.html          # HTML template for your web app's homepage          
+
+
+└── app.py                  # Main file to run your Flask web app
+
+└── Procfile                # For deployment (e.g., on Render)
+
+└── requirements.txt        # Python dependencies
+
+└── df_cleaned_export       # Input to app.py   
+
+└── README.md               # Project documentation  
+
 
 ### **🔑 Key Features**
 - ✅ **XGBoost model** achieving **high accuracy** for stroke prediction.
@@ -30,8 +71,54 @@ The app will be available at **http://127.0.0.1:5000/**.
 
 ### **3️⃣ Deployment**
 - Host for free on a number of cloud hosting sites: **Render, Heroku**, etc.
+  
 
 ---
+### Deploying to Render
+
+1. Push the Code to GitHub
+
+    git add .
+
+    git commit -m "Initial commit"
+
+    git push origin main
+
+2. Deploy on Render
+
+    1.	Go to Render.
+
+    2.	Click New + → Web Service.
+
+    3.	Connect your GitHub repository.
+
+    4.	Set Build Command:
+
+        pip install -r requirements.txt
+
+    5.	Set Start Command:
+
+        gunicorn app:app
+
+    6.	Click "Deploy" and wait for deployment to complete.
+
+## Troubleshooting
+
+Getting a 404 Error?
+
+•	Ensure index.html exists in the templates/ folder.
+
+Model Not Found?
+
+•	Make sure model_rf_new.pkl is inside the /model/ directory.
+
+Deployment Failing on Render?
+
+Try triggering a redeploy:
+
+git commit --allow-empty -m "Trigger redeploy"
+
+git push origin main
 
 ## **📊 Dataset Overview**
 The dataset comprises **5,110 records** with **12 features**, covering **demographic, health, and lifestyle factors** influencing stroke risk. Key features include **age, hypertension, heart disease, smoking status, and body mass index (BMI)**, offering a comprehensive insight into stroke risk determinants.
@@ -60,7 +147,7 @@ The most significant stroke risk factors are **older age, high blood sugar, hear
 ---
 
 ## **📌 Summary of Findings & Real-World Impact**
-Stroke is a leading global health concern, and early detection is critical for prevention. This project utilizes **a Voting Classifier combining Random Forest and Logistic Regression** to develop a highly accurate stroke risk prediction model. The interactive web app enables users to assess their risk and receive **personalized health recommendations**.
+Stroke is a leading global health concern, and early detection is critical for prevention. This project utilizes **XGBoost model** to develop a highly accurate stroke risk prediction model. The interactive web app enables users to assess their risk and receive **personalized health recommendations**.
 
 ### **🔑 Key Insights:**
 - **Primary Risk Factors:** Age, glucose levels, hypertension, and heart disease are the most influential predictors.
